@@ -1,0 +1,12 @@
+name: unit_data
+title: unit_data
+username:
+account: francimario
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 300203
+bundleId: 1270835
+url: https://francimario.shinyapps.io/unit_data/
+when: 1521149019.43031
+asMultiple: FALSE
+asStatic: FALSE

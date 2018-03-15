@@ -34,3 +34,5 @@ interesting tools:
   
   * as a second option, the user himself can upload his own
   dataset and see how the distributions behave for it.  
+  
+The application is available for use at: https://francimario.shinyapps.io/unit_data/
