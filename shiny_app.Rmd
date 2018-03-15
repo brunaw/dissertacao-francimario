@@ -1403,13 +1403,13 @@ output$chart1 <- renderPlot({
     obj <- summ(y)
     par <- obj$mod[[paste(model[1])]]
     #    Parameter correction
+    par_adj <- par
     if(model[1] %in% c("simplex", "ll", "ln", "lsl",
                        "lt", "lsep", "lsn", "lst", "lsep")){
-      par_adj <- par
       par_adj[2] <- 1/(par_adj[2]^2)
     }
     par_c <- as.character(round(par_adj, 3))
-
+    
     par_ch <- par_c[1]    
     for(i in 1:(length(par_c)-1)){
       par_ch <- paste(par_ch, par_c[i+1], sep = ", ")
@@ -1426,10 +1426,10 @@ output$chart1 <- renderPlot({
     
     else if(length(model) == 2) {
       par_2 <- obj$mod[[paste(model[2])]]
+      par_adj_2 <- par_2
       #    Parameter correction
       if(model[2] %in% c("simplex", "ll", "ln", "lsl",
                          "lt", "lsep", "lsn", "lst", "lsep")){
-         par_adj_2 <- par_2
         par_adj_2[2] <- 1/(par_adj_2[2]^2)
       }
 
@@ -1456,10 +1456,10 @@ output$chart1 <- renderPlot({
     
     else if(length(model) == 3) {
       par_2 <- obj$mod[[paste(model[2])]]
+      par_adj_2 <- par_2
       #    Parameter correction
       if(model[2] %in% c("simplex", "ll", "ln", "lsl",
                          "lt", "lsep", "lsn", "lst", "lsep")){
-        par_adj_2 <- par_2
         par_adj_2[2] <- 1/(par_adj_2[2]^2)
       }
       
@@ -1472,10 +1472,10 @@ output$chart1 <- renderPlot({
       
       
       par_3 <- obj$mod[[paste(model[3])]]
+      par_adj_3 <- par_3
       #    Parameter correction
       if(model[3] %in% c("simplex", "ll", "ln", "lsl",
                          "lt", "lsep", "lsn", "lst", "lsep")){
-        par_adj_3 <- par_3
         par_adj_3[2] <- 1/(par_adj_3[2]^2)
       }
       
