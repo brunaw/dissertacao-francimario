@@ -1,0 +1,1586 @@
+---
+title: "Unit data"
+output:  
+  flexdashboard::flex_dashboard:
+    theme: lumen
+    background: pink
+    orientation: column
+    vertical_layout: scroll
+    runtime: shiny
+runtime: shiny
+---
+
+
+Introduction {data-orientation=columns}
+=======================================================================
+Column {data-height=950, data-width=650}
+------------------------------------------------------------------------
+
+### Beta distribution
+
+We say that $Y\sim \rm{beta}(\mu,\phi)$ with mean $\mu \in (0,1)$ and 
+precision parameter $\phi>0$ if its probability density function is given by
+$$ f(y;\mu,\phi)=\dfrac{\Gamma(\phi)}{\Gamma(\mu \phi)\Gamma((1-\mu)
+\phi)}y^{\mu \phi -1}(1-y)^{(1-\mu)\phi-1}, \quad y \in (0,1).$$
+For more details see Ferrari and Cribari-Neto (2004).
+
+### Kumaraswamy distribution
+
+We say that $Y\sim {\rm kuma}(\mu,\phi)$ with median $\mu \in (0,1)$ 
+and precision parameter $\phi>0$ if its probability density function 
+is given by
+$$f(y;\mu,\phi)=\dfrac{\phi\log{(0.5)}}{\log{(1-\mu^{\phi}})}
+y^{\phi-1}(1-y^{\phi})^{\dfrac{\log{(0.5)}}{\log{(1-\mu^{\phi})}}-1}, 
+\quad y \in (0,1).$$
+For more details see Kumaraswamy (1980) and Mitnik e Baek (2013).
+
+### Simplex distribution
+
+We say that $Y\sim {\rm S}(\mu,\phi)$ with mean $\mu \in (0,1)$ and 
+precision parameter $\phi>0$ if its probability density function is given by
+$$f(y;\mu,\phi)=\left\lbrace\dfrac{\phi}{2\pi\{y(1-y)\}^3}\right\rbrace^
+{\frac{1}{2}}\exp{\left\lbrace-\frac{\phi}{2}\dfrac{(y-\mu)^2}{y(1-y)
+\mu^2(1-\mu)^2} \right\rbrace}, \quad y \in (0,1).$$
+For more details see Barndorff-Nielsen and Jørgensen (1991).
+
+### Unit gamma distribution
+
+We say that $Y\sim {\rm Gu}(\mu,\phi)$ with mean $\mu \in (0,1)$ and 
+precision parameter $\phi>0$ if its probability density function is 
+given by $$f(y;\mu,\phi)=\dfrac{\left[\dfrac{\mu^{1/\phi}}{1-\mu^{1/
+\phi}}\right]^\phi}{\Gamma(\phi)} y^{\dfrac{\mu^{1/\phi}}{1-\mu^{1/\phi}}-1}
+\left[\log{\left(\dfrac{1}{y}\right)} \right]^{\phi-1}, \quad y \in (0,1).$$
+For more details see Grassia (1977).
+
+### Rectangular beta distribution
+
+We say that $Y\sim {\rm BR(\gamma,\phi,\alpha)}$ with mean 
+$\gamma \in (0,1)$, precision parameter $\phi>0$ and shape parameter 
+associated with tails $\alpha \in [0,1]$ if its probability density
+function is given by
+$$f(y;\gamma,\phi,\alpha)=\alpha(1-|2\gamma-1|)+(1-\alpha(1-|2\gamma-1|))
+{\rm b}\left(y;\dfrac{\gamma-0.5 \alpha(1-|2\gamma-1|)}{1-\alpha(1-|2\gamma-1|)},
+\phi\right), \quad y \in (0,1),$$
+
+where ${\rm b}\left(y; \mu, \phi \right)$ is the probability density 
+function of the ${\rm beta}(\mu,\phi)$ distribution. For more details 
+see Hahn (2008) and Bayes et al. (2012).
+
+### Logit logistic distribution
+
+We say that ${Y}\sim {\rm LL(\mu,\phi)}$ with parameter of 
+location $\mu \in \mathbb{R}$ and precision $\phi>0$ if its probability density function is given by
+$$f(y;\mu,\phi)=\dfrac{e^{-\sqrt{\phi}(y^*-\mu)}}{[1+e^{-\sqrt{\phi}(y^*-\mu)}]^2} \frac{\sqrt{\phi} }{y(1-y)}, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$.
+
+### Logit normal distribution
+
+We say that ${Y}\sim {\rm LN(\mu,\phi)}$ with parameter of 
+location $\mu \in \mathbb{R}$ and precision $\phi>0$ if its probability density function is given by
+$$f(y;\mu,\phi)=\dfrac{\sqrt{\phi}}{\sqrt{2\pi} y(1-y)}\exp{ \left\lbrace -\dfrac{\phi}{2}\left(y^*-\mu\right)^2 \right\rbrace }, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$.
+
+### Logit t distribution
+
+We say that ${Y}\sim {\rm LT(\mu,\phi,\nu)}$ with parameter of 
+location $\mu \in \mathbb{R}$, precision $\phi>0$ and graus de liberdade $\nu>0$ if its probability density function is given by
+$$f(y;\mu,\phi,\nu)=\sqrt{\dfrac{\phi}{\pi\nu}}\dfrac{\Gamma((\nu+1)/2)}{\Gamma(\nu/2)}\left[1+\dfrac{\phi(y^*-\mu)^2}{\nu} \right]^{-(\nu+1)/2} \frac{1}{y(1-y)}, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$.
+
+### Logit exponential power distribution
+
+We say that ${Y}\sim {\rm LEP(\mu,\phi)}$ with parameter of 
+location $\mu \in \mathbb{R}$, precision $\phi>0$ and $\nu>0$ if its probability density function is given by
+$$f(y;\mu,\phi,\nu)=\dfrac{\nu \exp{\left\lbrace{-\dfrac{1}{2}\left|\dfrac{\sqrt{\phi}(y^*-\mu)}{c}\right|^\nu}\right\rbrace}}{c 2^{(1+1/\nu)}\Gamma(1/\nu)}\frac{\sqrt{\phi}}{y(1-y)}, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$ e $c=\sqrt{2^{-2/\nu \Gamma(1/\nu)/\Gamma(3/\nu)}}$.
+
+### Logit skew logistic distribution
+
+We say that ${Y}\sim {\rm LSL(\mu,\phi,\lambda)}$ with parameter of 
+location $\mu \in \mathbb{R}$, precision $\phi>0$ and skewness 
+$\lambda \in \mathbb{R}$ if its probability density function is given by
+$$ f(y;\mu,\phi,\lambda)=\dfrac{2\sqrt{\phi}e^{-\sqrt{\phi}(y^*-\mu)}}
+{[1+e^{-\sqrt{\phi}(y^*-\mu)}]^2[y(1-y)][1+e^{-\lambda\sqrt{\phi}(y^*
+-\mu)}]}, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$. For more details see Gupta et al. (2002) and Nadarajah (2009). If $\lambda=0$  we have ${Y}\sim {\rm LL(\mu,\phi)}$.
+
+### Logit skew normal distribution
+
+We say that ${Y}\sim {\rm LSN(\mu,\phi,\lambda)}$ with parameter of 
+location $\mu \in \mathbb{R}$, precision $\phi>0$ and skewness $\lambda
+\in \mathbb{R}$ if its probability density function is given by
+$$ f(y;\mu,\phi,\lambda)=\dfrac{ \sqrt{2\phi} e^{-\phi(y^*-\mu)^2}
+\Phi(-\lambda \sqrt{\phi}(y^*-\mu)) }{\sqrt{\pi}y(1-y)}, \quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$. For more details see Azzalini (1985) and Gupta et al. (2002). If $\lambda=0$  we have ${Y}\sim {\rm LN(\mu,\phi)}$.
+
+### Logit skew t distribution
+
+We say that ${Y}\sim {\rm LST(\mu,\phi,\nu,\lambda)}$ with parameter 
+of location $\mu \in \mathbb{R}$, precision $\phi>0$, degrees of 
+freedom $\nu>0$ and skewness $\lambda \in \mathbb{R}$ if its 
+probability density function is given by
+$$ f(y;\mu,\phi,\nu,\lambda)=\sqrt{\dfrac{\phi}{\pi\nu}}
+\dfrac{\Gamma((\nu+1)/2)}{\Gamma(\nu/2)}\left[1+\dfrac{\phi(y^*-\mu)^2}
+{\nu} \right]^{-(\nu+1)/2} \frac{2 F(\lambda y;\mu,\phi,\nu)}{y(1-y)},
+\quad y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$. For more details see Gupta et al. (2002) and Azzalini and Capitanio (2003). If $\lambda=0$  we have ${Y}\sim {\rm LT(\mu,\phi,\nu)}$.
+
+### Logit skew exponential power distribution
+
+We say that ${Y}\sim {\rm LSEP(\mu,\phi,\nu,\lambda)}$ with parameter of location $\mu \in \mathbb{R}$, precision $\phi>0$, kurtosis $\nu>0$ 
+and skewness $\lambda \in \mathbb{R}$ if its probability density 
+function is given by
+$$ f(y;\mu,\phi,\nu\lambda)=\dfrac{2\sqrt{\phi}\nu
+\exp{\left\lbrace{-\dfrac{1}{2}\left|\dfrac{\sqrt{\phi}(y^*-\mu)}
+{c}\right|^\nu}\right\rbrace} \Phi_{EP_0}( {\rm signal}(z)|z|^{\nu/2} 
+\lambda (2/\nu)^{1/2} )}{c 2^{(1+1/\nu)}\Gamma(1/\nu)[y(1-y)]}, \quad 
+y\in (0,1),$$
+em que $y^*=\log{[y/(1-y)]}$ e $c=\sqrt{2^{-2/\nu \Gamma(1/\nu)/\Gamma(3/\nu)}}$. For more details see Azzalini (1986) and DiCiccio and Monti (2004). If $\lambda=0$  we have ${Y}\sim {\rm LEP(\mu,\phi,\nu)}$.
+
+### References
+
+Azzalini(1985) Adelchi Azzalini. A class of distributions which includes
+the normal ones.
+
+Scandinavian Journal of Statistics, 12:171-178.
+
+Azzalini e Capitanio(2003) Adelchi Azzalini e Antonella Capitanio. 
+Distributions generated by perturbation of symmetry with emphasis on
+a multivariate skew t-distribution.
+
+Journal of the Royal Statistical Society: Series B 
+(Statistical Methodology), 65:367-389.
+
+Barndorff-Nielsen e Jørgensen(1991) Ole E Barndorff-Nielsen e Bent
+Jørgensen. Some parametric models on the simplex. Journal of
+Multivariate Analysis, 39:106-116.
+
+Bayes et al.(2012) Cristian L Bayes, Jorge L Bazán, Catalina García et 
+al. A new robust regression model for proportions. Bayesian Analysis, 
+7:841-866.
+
+DiCiccio e Monti(2004) Thomas J DiCiccio e Anna Clara Monti. 
+Inferential aspects of the skew exponential power distribution. 
+Journal of the American Statistical Association, 99:439-450.
+
+Ferrari e Cribari-Neto(2004) Silvia LP Ferrari e 
+Francisco Cribari-Neto. Beta regression for modelling rates 
+and proportions. Journal of Applied Statistics, 31:799-815.
+
+Grassia(1977) A Grassia. On a family of distributions with 
+argument between 0 and 1 obtained by transformation of the 
+gamma and derived compound distributions. Australian
+& New Zealand Journal of Statistics, 19:108-114.
+
+Gupta et al.(2002) AK Gupta, Fu-Chuen Chang eWen-Jang Huang. Some 
+skew-symmetric models. Random Operators and Stochastic Equations, 
+10:133-140.
+
+Hahn(2008) Eugene David Hahn. Mixture densities for project 
+management activity times: A robust approach to pert. 
+European Journal of Operational Research, 188:450-459.
+
+Kumaraswamy(1980) Ponnambalam Kumaraswamy. A generalized probability
+density function for double-bounded random processes. Journal 
+of Hydrology, 46:79-88.
+
+Mitnik e Baek(2013) Pablo A Mitnik e Sunyoung Baek. The 
+kumaraswamy distribution: median-dispersion re-parameterizations 
+for regression modeling and simulation-based estimation. Statistical
+Papers, 54:177-192.
+
+Nadarajah(2009) Saralees Nadarajah. The skew logistic distribution. 
+AStA Advances in Statistical Analysis, 93:187-203.
+
+
+Models
+=======================================================================
+Column {.sidebar}
+-----------------------------------------------------------------------
+```{r}
+selectInput("plotType", 
+            "Distribution",
+            c(Beta = "beta", 
+              Kumaraswamy = "kuma",
+              Simplex  = "simplex", 
+              "Unit Gamma" = "gu",
+              "Retangular Beta" = "br",
+              LSL = "lsl",
+              LSN = "lsn",
+              LST = "lst",
+              LSEP = "lsep"))
+
+conditionalPanel(condition = 
+                   "input.plotType == 'beta' || 
+                    input.plotType == 'kuma' ||
+                    input.plotType == 'gu'",
+                 sliderInput("mu", 
+                             label = HTML("$$ \\mu \\enspace (0, 1) $$"),
+                             min = .01, 
+                             max = .99, 
+                             value = 0.5,
+                             step = 0.01,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("phi", 
+                             label = HTML("$$ \\phi \\enspace (0, \\infty) $$"),
+                             min = 0.1, 
+                             max = 100, 
+                             value = 2,
+                             step = 0.1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)))
+conditionalPanel(condition = "input.plotType == 'simplex'",
+                 sliderInput("mu_2", 
+                             label = HTML("$$ \\mu \\enspace (0, 1) $$"),
+                             min = .01, 
+                             max = .99, 
+                             value = 0.5,
+                             step = 0.01,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("phi_2", 
+                             label = HTML("$$ \\phi \\enspace (0, \\infty) $$"),
+                             min = 0.01, 
+                             max = 2, 
+                             value = 1,
+                             step = 0.01,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)))
+
+conditionalPanel(condition = "input.plotType == 'br'",
+                 sliderInput("gamma", 
+                             label = HTML("$$ \\gamma \\enspace (0, 1) $$"),
+                             min = .01, 
+                             max = .99, 
+                             value = 0.5,
+                             step = 0.01,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("phi_3", 
+                             label = HTML("$$ \\phi \\enspace (0, \\infty) $$"),
+                             min = 0.1,
+                             max = 100, 
+                             value = 2, 
+                             step = 0.1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("alfa", 
+                             label = HTML("$$ \\alpha \\enspace [0, 1] $$"),
+                             min = 0, 
+                             max = 1, 
+                             value = 0,
+                             step = 0.01,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)))
+
+conditionalPanel(condition = 
+                   "input.plotType == 'lsl' || 
+                    input.plotType == 'lsn' ||
+                    input.plotType == 'lst' || 
+                    input.plotType == 'lsep'",
+                 sliderInput("mumu", 
+                             label = HTML("$$ \\mu \\enspace 
+                                          (- \\infty, \\infty) $$"),
+                             min = -10,
+                             max = 10, 
+                             value = 0,
+                             step = 0.1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("phi_4", 
+                             label = HTML("$$ \\phi \\enspace (0, \\infty) $$"),
+                             min = 0.1, 
+                             max = 100, 
+                             value = 2,
+                             step = 0.1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 sliderInput("lambda", 
+                             label = HTML("$$ \\lambda \\enspace
+                                          ( - \\infty, \\infty) $$"),
+                             min= -10, 
+                             max = 10, 
+                             value = 0,
+                             step = .1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE)),
+                 conditionalPanel(condition = "input.plotType == 'lst' || 
+                 input.plotType == 'lsep'",
+                 sliderInput("tau", 
+                             label = HTML("$$ \\tau \\enspace
+                                          ( 0, \\infty) $$"),
+                             min = 0.1, 
+                             max = 50, 
+                             value = 2,
+                             step = .1,
+                             animate = animationOptions(interval = 100,
+                                                        loop = TRUE))
+                 )
+)
+```
+
+
+Row 
+-----------------------------------------------------------------------
+
+### Chart
+```{r}
+#------------------------------------------------
+# Server
+#------------------------------------------------
+library(gamlss)
+library(simplexreg)
+
+# Distribution definitions
+dBeta <-function(y, mu, phi){
+  (1/beta(mu*phi,(1-mu)*phi) * y^(mu*phi-1) * (1-y)^((1-mu)*phi-1))
+}
+
+dkum <-function(y, mu, phi, a=0, b=1){
+  (((phi*log(0.5))/(log(1-mu^phi))) * y^(phi-1)*(1-y^phi)^
+    (((log(0.5))/(log(1-mu^phi))) - 1))
+}
+
+dgunit <-function(y, mu, phi){
+  (((((mu^(1/phi))/(1-mu^(1/phi)))^phi)/gamma(phi)) 
+  * y^(((mu^(1/phi))/(1-mu^(1/phi)))-1)*(log(1/y))^(phi-1))
+}
+
+dbr <- function(y, gama, phi, alfa){
+  (alfa*(1-abs(2*gama-1))+(1-alfa*(1-abs(2*gama-1))) * 
+     dbeta(y,phi*(gama-.5*alfa*(1-abs(2*gama-1)))/
+             (1 - alfa*(1-abs(2*gama-1))),
+           phi*(1-(gama-.5*alfa*(1-abs(2*gama-1)))/
+                  (1-alfa*(1-abs(2*gama-1))))))
+}
+
+dsll <- function(y, mu, phi, lambda){
+        (dLO(log(y/(1-y)),mu,1/sqrt(phi))*
+           (2*sqrt(phi)/(y-y^2))*pLO(lambda*log(y/(1-y)),
+                                     mu, 1/sqrt(phi)))
+}
+
+curve_fc <-   function(model, par, col = "red2", add = FALSE, leg = TRUE){
+  mu <- par[1]
+  phi <- par[2]
+  
+  if("beta" %in% model){
+    m <- bquote(bold(mu == .(mu) ~ phi == .(phi)))
+
+    curve(dBeta(x, mu = mu, phi = phi),
+          xlim = c(0,1), 
+          col = col,
+          cex.lab = 1.5,
+          lty = 1, 
+          lwd = 5,
+          ylab = "f(y)",
+          xlab="y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # Kumaraswamy distribution
+  else if("kuma" %in% model ){
+    m <- bquote(bold(mu == .(mu) ~ phi == .(phi)))
+    
+    curve(dkum(y = x, mu = mu, phi = phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # Simplex distribution
+  else if("simplex" %in% model){
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2)))
+    
+    curve(simplexreg::dsimplex(x = x, mu = mu, sig = phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # Unit gamma distribution
+  else if("gu" %in% model){
+    m <- bquote(bold(mu == .(mu) ~ phi == .(phi)))
+    
+    curve(dgunit(y = x, mu = mu, phi = phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+    # Retangular beta distribution
+  else if("br" %in% model){
+    alfa <- par[1]
+    gamma <- par[2]
+    phi <- par[3]
+    
+    m <- bquote(bold(alpha == .(alfa) ~ gamma == .(gamma) 
+                     ~ phi == .(phi)))
+
+    curve(dbr(y = x, alfa = alfa, gama = gamma, phi = phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # ll distribution
+  else if("ll" %in% model){
+    invisible(capture.output(gen.Family("LO", type="logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ))
+    
+    curve(dlogitLO(x = x, mu = mu, sigma=phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # ln distribution
+  else if("ln" %in% model){
+    invisible(capture.output(gen.Family("NO", type="logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ))
+    
+    curve(dlogitNO(x = x, mu = mu, sigma=phi),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+    
+  # lt distribution
+  else if("lt" %in% model){
+    nu <- par[3]
+    invisible(capture.output(gen.Family("ST1", type = "logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ~ nu == .(nu)))
+    
+    curve(dlogitST1(x = x, mu = mu, sigma = phi,
+                    nu = nu),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  else if("lep" %in% model){
+    nu <- exp(par[3])
+    
+    invisible(capture.output(gen.Family("SEP", type = "logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ~ nu == .(nu)))
+    
+    curve(dlogitSEP(x = x, mu = mu, sigma = phi,nu=0 ,tau = nu),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+    
+  # lsl distribution
+  else if("lsl" %in% model){
+    lambda <- par[3]
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(phi) ~ lambda == .(lambda)))
+    
+    curve(dsll(y = x, mu = mu, phi = phi, lambda = lambda),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }  
+  }
+  
+    # lsn distribution
+  else if("lsn" %in% model){
+    lambda <- par[3]
+    invisible(capture.output(gen.Family("SN1", type = "logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ~ lambda == .(lambda)))
+    
+    curve(dlogitSN1(x = x, mu = mu, sigma=phi, nu = lambda),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+  # lst distribution
+  else if("lst" %in% model){
+    lambda <- par[3]
+    tau <- par[4]
+    invisible(capture.output(gen.Family("ST1", type = "logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2) ~ lambda == .(lambda) 
+                     ~ tau == .(tau)))
+    
+    curve(dlogitST1(x = x, mu = mu, sigma = phi,
+                    nu = lambda, tau = tau),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+    }
+  }
+  
+    # lsep distribution
+  else if("lsep" %in% model){
+    lambda <- par[3]
+    nu <- par[4]
+    
+    invisible(capture.output(gen.Family("SEP", type = "logit")))
+    
+    m <- bquote(bold(mu == .(mu) ~ phi == .(1/phi^2)  ~ lambda == .(lambda)
+                     ~ nu == .(nu)))
+    
+    curve(dlogitSEP(x = x, mu = mu, sigma = phi,
+                    nu = lambda, tau = nu),
+          xlim = c(0,1), 
+          col = col,
+          lty = 1, 
+          lwd = 5,
+          cex.lab = 1.5,
+          ylab = "f(y)",
+          xlab = "y",
+          add = add)
+    if(leg){
+      legend("topleft", 
+             legend = m, 
+             lty = 1, lwd = 3, col = 0)
+      
+    }
+  }
+}
+
+output$plot <- renderPlot({
+  model <- input$plotType
+  mu <- input$mu
+  phi <- input$phi
+  
+  if(model %in% c("beta", "kuma", "gu")){
+    par <- c(mu, phi)
+  }
+  else if(model == "simplex"){
+     mu <- input$mu_2
+    phi <- input$phi_2
+     
+     par <- c(mu, phi)
+   }
+   else if(model == "br"){
+     alfa <- input$alfa
+     gamma <- input$gamma
+     phi <- input$phi_3
+     
+     par <- c(alfa, gamma, phi)
+   }
+   else if(model %in% c("lsl", "lsn")){
+     lambda <- input$lambda
+     mumu <- input$mumu
+     phi <- input$phi_4
+     par <- c(mumu, phi, lambda)
+   }
+
+   else if(model == "lst"){
+     lambda <- input$lambda
+     mumu <- input$mumu
+     tau <- input$tau
+     phi <- input$phi_4
+     
+     par <- c(mumu, phi, lambda, tau)
+   }
+   else if(model == "lsep"){
+     lambda <- input$lambda
+     mumu <- input$mumu
+     tau <- input$tau
+     phi <- input$phi_4
+     
+     par <- c(mumu, phi, lambda, tau)  
+   }
+  curve_fc(model = model, par = par)    
+})
+
+
+plotOutput("plot")
+```
+
+Fit
+=======================================================================
+Column {.sidebar}
+-----------------------------------------------------------------------
+```{r}
+da.thesis <- read.table("word_bank1.txt")
+
+selectInput(inputId = "choice",
+            label = "Choose Action",
+            choice = c("Use available data" = "data",
+                       "Upload File" = "run"))
+
+conditionalPanel("input.choice == 'run' ",
+                 fileInput("file", "File Upload",
+                           accept = c("text/csv",
+                                      "text/comma-separated-values,text/plain",
+                                      ".csv")),
+                 
+                 # Horizontal line ----
+                 tags$hr(),
+                 
+                 checkboxInput(inputId="header",
+                               label="Header",
+                               value=TRUE),
+                 radioButtons(inputId="separator",
+                              label="Separator",
+                              choices=c("Comma"=",",
+                                        "Semicolon"=";",
+                                        "Tab"="\t"),
+                              selected=","),
+                 radioButtons(inputId="decimal",
+                              label="Decimal",
+                              choices=c("Dot" = ".",
+                                        "Comma" = ","),
+                              selected="."),
+                 radioButtons(inputId="quotation",
+                              label="Quote",
+                              choices=c(
+                                "None"="",
+                                "Double"='"',
+                                "Unique"="'"),
+                              selected='"'),
+                 actionButton(inputId="run",
+                              label="Run!"))
+
+# File treatment
+file <- reactive({
+  fileUploaded <- input$file
+  if (is.null(fileUploaded)){
+    return(NULL)
+  } else {
+    return(fileUploaded$datapath)
+  }
+})
+
+dataset <- reactive({
+  fileurl <- isolate(file())
+  input$run
+  if (is.null(fileurl)){
+    return(NULL)
+  } else {
+    data <- read.table(fileurl,
+                       header=input$header,
+                       sep=input$separator,
+                       quote=input$quotation,
+                       dec=input$decimal)
+    return(data)
+  }
+})
+observe({
+  data <- dataset()
+  if (!is.null(data)) {
+    updateSelectInput(session,
+                      inputId="yvar",
+                      choices=names(data),
+                      selected=names(data)[1])
+    updateCheckboxGroupInput(session,
+                             inputId = "choosenvar",
+                             choices = names(data))
+  }
+})
+
+conditionalPanel("input.choice == 'data'", 
+                 selectInput(inputId = "data.select",
+                             label = "Select a variable",
+                             choices = names(da.thesis),
+                             selected = names(data)[1]),
+                 checkboxGroupInput("curve",
+                                    label = "Add a curve over the plot
+                                    (max. 3):",
+                                    c(Beta = "beta",
+                                      Kumaraswamy = "kuma",
+                                      Simplex  = "simplex",
+                                      "Unit Gamma"  = "gu",
+                                      "Retangular Beta" = "br",
+                                      LL = "ll",
+                                      LN = "ln",
+                                      LT = "lt",
+                                      LEP = "lep",
+                                      LSL = "lsl",
+                                      LSN = "lsn",
+                                      LST = "lst",
+                                      LSEP = "lsep")))
+
+conditionalPanel("input.choice == 'run' ",
+                   selectInput(inputId="yvar",
+                               label = "Choose the variable",
+                               choices = names(data),
+                               selected = ""),
+                 checkboxGroupInput("curve_2",
+                                    label = "Add a curve over the plot:",
+                                    c(Beta = "beta",
+                                      Kumaraswamy = "kuma",
+                                      Simplex  = "simplex",
+                                      "Unit Gamma" = "gu",
+                                      "Retangular Beta" = "br",
+                                      LL = "ll",
+                                      LN = "ln",
+                                      LT = "lt",
+                                      LEP = "lep",
+                                      LSL = "lsl",
+                                      LSN = "lsn",
+                                      LST = "lst",
+                                      LSEP = "lsep")))
+
+sliderInput("lim", 
+            label = "ylim",
+            min = 1, 
+            max = 50, 
+            value = 10,
+            step = 1)
+
+sliderInput("breaks", 
+            label = "breaks",
+            min = 1, 
+            max = 50, 
+            value = 10,
+            step = 1)
+
+
+
+```
+  
+
+Row {.tabset}
+-----------------------------------------------------------------------
+
+```{r}
+# Package loading
+library(extraDistr)
+library(moments)
+library(GoFKernel)
+library(gamlss)
+library(simplexreg)
+library(zipfR)
+library(tidyverse)
+library(DT)
+library(formattable)
+
+#------------------------------------------------------------
+# Summary Function  
+#------------------------------------------------------------
+
+
+# Beta distribution
+dBeta <- function(x, mu, phi){
+  (1/beta(mu*phi, (1 - mu)*phi)*
+     x^(mu*phi - 1)*(1 - x)^((1 - mu)*phi - 1))
+}
+
+loglikBeta <- function(par, x, sum = "yes"){ 
+  return(switch(sum, "yes" = sum(-log(dBeta(x = x, par[1], par[2]))),
+                "no" = -log(dBeta(x = x, par[1], par[2])) 
+                ))
+} 
+
+# Kumaraswamy distribution
+dkuma <- function(x, mu, phi){
+  a <- log(0.5)/log(1 - mu^phi)
+  
+  (phi * a * x^(phi-1) * (1-x^phi)^(a-1))  
+}
+
+loglikKuma <- function(par, x, sum = "yes"){ 
+    return(switch(sum, "yes" = sum(-log(dkuma(x = x, par[1], par[2]))),
+                "no" = -log(dkuma(x, par[1], par[2])) 
+                ))
+} 
+
+# Simplex distribution
+loglikSimplex <- function(par, x, sum = "yes") {
+  return(switch(sum, "yes" = (sum(-log(
+    simplexreg::dsimplex(x, par[1], par[2])))),
+    "no" = -log(simplexreg::dsimplex(x, par[1], par[2])) 
+  ))
+}
+
+
+# Unit gamma distribution    
+dgu <- function(x, mu, phi){
+  a <- (mu^(1/phi))
+  (((a/(1-a))^phi / gamma(phi)) *
+      x^(a/(1-a) -1) * (-log(x))^(phi-1))
+}
+
+loglikGu <- function(par, x, sum = "yes"){ 
+  return(switch(sum, "yes" = sum(-log(dgu(x = x, par[1], par[2]))),
+                "no" = -log(dgu(x, par[1], par[2])) 
+  ))
+}
+
+# Retangular distribution
+dbr <- function(y, gama, phi, alfa){
+  (alfa*(1 - abs(2*gama - 1)) +
+     (1 - alfa*(1 - abs(2*gama - 1))) * 
+     dbeta(y, phi*(gama - 0.5*alfa*(1 - abs(2*gama - 1)))
+           /(1-alfa*(1-abs(2*gama-1))),
+           phi*(1-(gama - 0.5*alfa*(1-abs(2*gama-1)))
+                /(1-alfa*(1-abs(2*gama-1))))))
+}
+
+
+loglikBr <- function(par, x, sum = "yes"){ 
+  return(switch(sum, "yes" = sum(-log(dbr(x, par[1], par[2],
+                                          par[3]))),
+                "no" = -log(dbr(x, par[1], par[2],
+                                par[3])) 
+  ))
+}
+
+
+dLSL <- function(y, mu, phi, lambda){
+  ((2*sqrt(phi)*exp(-sqrt(phi)*(log(y/(1-y))-mu))) 
+   /(((1 + exp(-sqrt(phi)*(log(y/(1-y))-mu)))^2)
+     *(y - y^2)*(1 + exp(-lambda * sqrt(phi) * 
+                           (log(y/(1-y))-mu)))))
+}
+
+loglikLSL <- function(par, x, sum = "yes"){ 
+  return(switch(sum, "yes" = sum(-log(dLSL(x, par[1], par[2],
+                                           par[3]))),
+                "no" = -log(dLSL(x, par[1], par[2],
+                                 par[3])) 
+  ))
+}
+
+# Some functions
+logit <-function(x){ log(x/(1-x)) }
+z <- function(x){ sum(x)/(sqrt(length(x)-1)*sd(x))}
+
+# Summary
+summ <- function(y){
+  
+  y <- na.omit(y)
+  y <- ifelse(y >= 1, 0.999, ifelse(y <= 0, 0.001, y))
+
+  #---------------------------------
+  ## guess - simplex, unit gamma
+  #---------------------------------
+  chute <- c(seq(0.01,.99,.03),
+             seq(1, 10, 1),
+             seq(11, 100, 5),
+             seq(100, 1000, 10),
+             seq(1000, 10000, 100))
+  
+  
+  # Algoritmo iterativo
+  for(i in 1:100){
+    w <- try(ajuste.beta <- optim(c(mean(y), i),
+                                  fn = loglikBeta, 
+                                  x = y,
+                                  method = "L-BFGS-B",
+                                  lower = c(0, 0),
+                                  upper = c(1, Inf))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      ajuste.beta <- c(mean(y), (mean(y)*(1-mean(y))
+                                 - var(y))/var(y))
+      i <- i+1 }
+    else{ break }
+  }
+  
+  # kumaraswamy
+  for(i in 1:100){
+    w <- try(ajuste.kuma <- optim(c(median(y),
+                                    log(1-exp(log(.5)/i))/log(median(y))),
+                                  fn = loglikKuma, 
+                                  x = y,
+                                  method = "L-BFGS-B",
+                                  lower = c(0, 0),
+                                  upper = c(1, Inf))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      ajuste.kuma <- c(median(y), 1)
+      i <- i+1 }
+    else{ break }
+  }
+  
+  # simplex
+  for(i in 1:length(chute)){
+    w <- try(ajuste.simplex <- optim(c(mean(y), 
+                                       chute[i]),
+                                     fn = loglikSimplex, 
+                                     x = y,
+                                     method = "L-BFGS-B", 
+                                     lower = c(0, 0),
+                                     upper = c(1, Inf))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      ajuste.simplex <- c(mean(y), sqrt(mean(((y--mean(y))^2)/(y*(1-y)*(mean(y)^2)*((1--mean(y))^2)))))
+      i <- i+1 
+      }
+    else{ break }
+  }
+  
+
+  # gama unitária
+  for(i in 1:length(chute)){
+    w <- try(ajuste.gu <- optim(c(mean(y), 
+                                  chute[i]),
+                                fn = loglikGu, 
+                                x = y,
+                                method = "L-BFGS-B", 
+                                lower = c(0, 0),
+                                upper = c(1, Inf))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      ajuste.gu <- c(mean(y), 1)
+      i <- i+1 
+      }
+    else{ break }
+  }
+  
+  # Ajuste beta retangular
+  
+  for(i in 1:100){
+    w <- try(ajuste.br <- optim(c(mean(y), i, 3 - kurtosis(y)),
+                                fn = loglikBr, 
+                                x = y,
+                                method = "L-BFGS-B", 
+                                lower = c(0, 0, 0),
+                                upper = c(1, Inf, 1))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      i <- i+1 
+      ajuste.br <- c(mean(y), 1, 3 - kurtosis(y))
+    }
+    else{ break }
+  }
+  
+  ## Ajuste logitLO
+  invisible(capture.output(gen.Family("LO", type = "logit")))
+  ajuste.LL <- gamlss(y ~ 1, family = logitLO,
+                      trace = FALSE)
+  ajuste.LL.par <- c(ajuste.LL$mu.coefficients, 
+                     exp(ajuste.LL$sigma.coefficients))
+  #---------------------------------
+  ## Ajuste logitNO
+  #---------------------------------
+  invisible(capture.output(gen.Family("NO", type = "logit")))
+  ajuste.NO <- gamlss(y ~ 1, family = logitNO,
+                      trace = FALSE)
+  ajuste.NO.par <- c(ajuste.NO$mu.coefficients, 
+                     exp(ajuste.NO$sigma.coefficients))
+  
+  #---------------------------------
+  ## Ajuste logitT
+  #---------------------------------
+  invisible(capture.output(gen.Family("TF", type = "logit")))
+  ajuste.LT <- gamlss(y ~ 1, family = logitTF,
+                      trace = FALSE)
+  ajuste.LT.par <- c(ajuste.LT$mu.coefficients, 
+                     exp(ajuste.LT$sigma.coefficients),
+                     exp(ajuste.LT$nu.coefficients))
+  
+  #---------------------------------
+  ## Ajuste logiPE
+  #---------------------------------
+  source('PETest.R')
+  invisible(capture.output(gen.Family("PET", type = "logit")))
+  ajuste.LPE <- gamlss(y ~ 1, family = logitPE,
+                       trace = FALSE)
+  
+  ajuste.LPE.par <- c(ajuste.LPE$mu.coefficients, 
+                       exp(ajuste.LPE$sigma.coefficients),
+                       ajuste.LPE$nu.coefficients)
+  
+  #---------------------------------
+  ## Ajuste logiSLO
+  #---------------------------------
+
+  for(i in 1:100){
+    w <- try(ajuste.LSL <- optim(c(logit(median(y)), i, 
+                                  3 - kurtosis(y)), 
+                                fn = loglikLSL, 
+                                x = y, 
+                                method = "L-BFGS-B", 
+                                lower = c(-Inf, 0, -Inf),
+                                upper = c(Inf, Inf, Inf))$par,
+             silent = TRUE)
+    
+    if(inherits(w, "try-error") == TRUE){ 
+      ajuste.LSL <- c(logit(median(y)), 1, 3 - kurtosis(y))
+      i <- i+1 }
+    else{ break }
+  }
+
+  ## Ajuste logitSNO
+  invisible(capture.output(gen.Family("SN1", type = "logit")))
+  ajuste.LSNO <- gamlss(y ~ 1, family = logitSN1,
+                        trace = FALSE)
+  ajuste.LSNO.par <- c(ajuste.LSNO$mu.coefficients, 
+                       exp(ajuste.LSNO$sigma.coefficients),
+                       ajuste.LSNO$nu.coefficients)
+  
+  ## Ajuste logitST
+  invisible(capture.output(gen.Family("ST1", type = "logit")))
+  ajuste.LST <- gamlss(y ~ 1, family = logitST1,
+                       trace = FALSE)
+  ajuste.LST.par <- c(ajuste.LST$mu.coefficients, 
+                      exp(ajuste.LST$sigma.coefficients),
+                      ajuste.LST$nu.coefficients,
+                      exp(ajuste.LST$tau.coefficients))
+  
+  ## Ajuste logitSEP
+  invisible(capture.output(gen.Family("SEP", type = "logit")))
+  ajuste.LSEP <- gamlss(y ~ 1, family = logitSEP,
+                        trace = FALSE)
+  
+  ajuste.LSEP.par <- c(ajuste.LSEP$mu.coefficients, 
+                       exp(ajuste.LSEP$sigma.coefficients),
+                       ajuste.LSEP$nu.coefficients,
+                       exp(ajuste.LSEP$tau.coefficients))
+
+  
+    ##################################
+    ##  Calculando os AIC's e BIC's ##
+    ##################################
+  
+  n <- length(y)
+  # Beta
+  l.beta <- - loglikBeta(x = y, par = c(ajuste.beta[1],
+                                        ajuste.beta[2]),
+                         sum = "no")
+  
+  AIC.beta <- 2*(2 - sum(l.beta))
+  BIC.beta <- 2*(log(n) - sum(l.beta))
+  
+  # Kumaraswamy
+  
+  l.kuma <- - loglikKuma(x = y, par = c(ajuste.kuma[1],
+                                        ajuste.kuma[2]),
+                         sum = "no")
+  
+  AIC.kuma <- 2*(2 - sum(l.kuma))
+  BIC.kuma <- 2*(log(n) - sum(l.kuma))
+  
+  # Simplex
+  l.simplex <- -loglikSimplex(x = y, 
+                              par = c(ajuste.simplex[1],
+                                      ajuste.simplex[2]),
+                              sum = "no")
+  
+  AIC.simplex <-2*(2 - sum(l.simplex))
+  BIC.simplex <-2*(log(n)- sum(l.simplex))
+  
+  # Gama unitária
+  l.gu <- - loglikGu(x = y, par = c(ajuste.gu[1],
+                                    ajuste.gu[2]),
+                     sum = "no")
+  
+  AIC.gu <-2*(2 - sum(l.gu))
+  BIC.gu <-2*(log(n) - sum(l.gu))
+  
+  # Beta retangular
+  l.br <- - loglikBr(x = y, par = c(ajuste.br[1],
+                                    ajuste.br[2],
+                                    ajuste.br[3]),
+                     sum = "no")
+  
+  AIC.br <- 2*(3 - sum(l.br))
+  BIC.br <- 2*((3/2)*log(n) - sum(l.br))
+  
+  # Logit logística
+  l.LL <- log(dlogitLO(y, mu = ajuste.LL$mu.coefficients,
+                       sigma = exp(ajuste.LL$sigma.coefficients)))
+  
+  AIC.L <- 2*(2 - sum(l.LL))
+  BIC.L <- 2*(log(n) - sum(l.LL))
+  
+  # Logit normal
+  l.LN <- log(dlogitNO(y, mu = ajuste.NO$mu.coefficients,
+                       sigma = exp(ajuste.NO$sigma.coefficients)))
+  
+  AIC.N <- 2*(2 - sum(l.LN))
+  BIC.N <- 2*(log(n) - sum(l.LN))
+  
+  # Logit t
+  l.LT <- log(dlogitTF(y, mu = ajuste.LT$mu.coefficients,
+                       sigma = exp(ajuste.LT$sigma.coefficients),
+                       nu = exp(ajuste.LT$nu.coefficients)))
+  
+  AIC.T <- 2*(2 - sum(l.LT))
+  BIC.T <- 2*((3/2)*log(n) - sum(l.LT))
+  
+  # Logit PE
+  l.LPE <- log(dlogitPE(y, mu = ajuste.LPE$mu.coefficients,
+                        sigma = exp(ajuste.LPE$sigma.coefficients),
+                        nu = exp(ajuste.LPE$nu.coefficients)))
+
+  AIC.PE <- 2*(3 - sum(l.LPE))
+  BIC.PE <- 2*((3/2)*log(n)-sum(l.LPE))
+  
+  # Logit SL
+  l.LSL <- - loglikLSL(x  = y, par = c(ajuste.LSL[1], 
+                                       ajuste.LSL[2], 
+                                       ajuste.LSL[3]),
+                       sum = "no")
+  
+  AIC.SL <-2*(3 - sum(l.LSL))
+  BIC.SL <-2*((3/2)*log(n) - sum(l.LSL))
+  
+  # Logit SN
+  l.LSN <-log(dlogitSN1(y, mu = ajuste.LSNO$mu.coefficients,
+                        sigma = exp(ajuste.LSNO$sigma.coefficients),
+                        nu = ajuste.LSNO$nu.coefficients))
+  
+  AIC.SN <- 2*(3 - sum(l.LSN))
+  BIC.SN <- 2*((3/2)*log(n)- sum(l.LSN))
+  
+  # Logit ST
+  l.LST <- log(dlogitST1(y, mu = ajuste.LST$mu.coefficients,
+                         sigma = exp(ajuste.LST$sigma.coefficients),
+                         nu = ajuste.LST$nu.coefficients,
+                         tau = exp(ajuste.LST$tau.coefficients)))
+  
+  AIC.ST <- 2*(4 - sum(l.LST))
+  BIC.ST <- 2*((4/2)*log(n)- sum(l.LST))
+  
+  # Logit SEP
+  l.LSEP <- log(dlogitSEP(y, mu = ajuste.LSEP$mu.coefficients,
+                          sigma = exp(ajuste.LSEP$sigma.coefficients),
+                          nu = ajuste.LSEP$nu.coefficients,
+                          tau = exp(ajuste.LSEP$tau.coefficients)))
+  
+  AIC.SEP <-2*(4 - sum(l.LSEP))
+  BIC.SEP <-2*((4/2)*log(n) - sum(l.LSEP))
+  
+  # Results summary ------------------------------
+    res <- data.frame(model = c("Beta", "Kumaraswamy",
+                                "Simplex", "Unit Gamma", 
+                                "Retangular Beta",
+                                "LL",
+                                "LN","LT",
+                                "LEP",
+                                "LSL","LSN",
+                                "LST","LSEP"),
+      AIC = c(AIC.beta, AIC.kuma, AIC.simplex, 
+                              AIC.gu,  
+                              AIC.br,
+                              AIC.L, AIC.N, AIC.T, 
+                              AIC.PE,
+                              AIC.SL, AIC.SN, AIC.ST, AIC.SEP),
+                      BIC = c(BIC.beta, BIC.kuma, BIC.simplex, BIC.gu,
+                              BIC.br,
+                              BIC.L, BIC.N, BIC.T, 
+                              BIC.PE,
+                              BIC.SL, BIC.SN, BIC.ST, BIC.SEP)) %>% 
+      mutate(delta.AIC = AIC - min(AIC), 
+             delta.BIC = BIC - min(BIC),
+             w_AIC = exp(-delta.AIC/2)/sum(exp(-delta.AIC/2)),
+             w_BIC = exp(-delta.BIC/2)/sum(exp(-delta.BIC/2))) %>% 
+      mutate_if(is.numeric, round, 3)
+    
+    ######################################
+    ##  Comparação dos modelos via TRGV ##
+    ######################################
+    
+    VR <- c(z(l.kuma-l.beta), z(l.simplex-l.beta), 
+           z(l.gu-l.beta), z(l.br-l.beta), 
+           z(l.LL-l.beta), z(l.LN-l.beta), z(l.LT-l.beta),
+           z(l.LPE-l.beta),
+           z(l.LSL-l.beta),
+           z(l.LSN-l.beta), z(l.LST-l.beta), z(l.LSEP-l.beta))
+    VR <- round(VR, 3)
+    p <- pnorm(VR)
+    p <- 1 - round(p, 3)
+
+    mod <- list(beta = ajuste.beta,
+                kuma = ajuste.kuma,
+                simplex = ajuste.simplex,
+                gu = ajuste.gu,
+                br = ajuste.br,
+                ll = ajuste.LL.par,
+                ln = ajuste.NO.par,
+                lt = ajuste.LT.par,
+                lep = ajuste.LPE.par,
+                lsl = ajuste.LSL,
+                lsn = ajuste.LSNO.par,
+                lst = ajuste.LST.par,
+                lsep = ajuste.LSEP.par)
+    
+    return(list(res = res, mod = mod, p = p,
+                VR = VR))
+  }
+
+
+
+
+```
+
+### Chart
+```{r}
+da.thesis <- read.table("word_bank1.txt")
+
+fc <- reactive({
+  if(is.null(input$file)){
+    var <- input$data.select
+    y <- da.thesis[, var]
+  } else { 
+  y <- dataset()[,input$yvar] 
+  } 
+  return(list(y=y))
+})
+
+
+curve_fc2 <- Vectorize(curve_fc, "model")
+
+
+output$chart1 <- renderPlot({
+  x <- fc()$y
+  
+  x[which(x>=1)] <- 0.999
+  x[which(x<=0)] <- 0.001
+
+  x2 <- as.data.frame(x)
+  names(x2) <- "x"
+  par <- c(0.5, 2)
+  
+  if(input$choice == "data"){
+  model <- input$curve
+  } else if(input$choice == "run"){
+      model <- input$curve_2
+  }
+
+  test <- NULL
+  if(length(model) > 3) {
+    model <- model[1:3]
+  }
+  y <- as.numeric(x2$x)
+
+  #----------
+  choices <- c(Beta = "beta", 
+               Kumaraswamy = "kuma",
+               Simplex  = "simplex", 
+               "Unit Gamma" = "gu",
+               "Retangular Beta" = "br",
+               LL = "ll",
+               LN = "ln",
+               LT = "lt",
+               LEP = "lep",
+               LSL = "lsl",
+               LSN = "lsn",
+               LST = "lst",
+               LSEP = "lsep")
+  
+  names_m <- names(choices[choices %in%  model])
+               
+
+  plot.1 <- hist(x, col = "steelblue2",
+                 freq = FALSE,
+                 main = "", 
+                 ylim = range(0:input$lim),
+                 breaks = input$breaks,
+                 xlab = "y",
+                 ylab = "density")
+
+
+
+  if(is.null(input$curve) && is.null(input$curve_2)){
+    plot.1 
+  } else if(!is.null(input$curve) || !is.null(input$curve_2)){ 
+
+
+    obj <- summ(y)
+    par <- obj$mod[[paste(model[1])]]
+    #    Parameter correction
+    if(model[1] %in% c("simplex", "ll", "ln", "lsl",
+                       "lt", "lsep", "lsn", "lst", "lsep")){
+      par_adj <- par
+      par_adj[2] <- 1/(par_adj[2]^2)
+    }
+    par_c <- as.character(round(par_adj, 3))
+
+    par_ch <- par_c[1]    
+    for(i in 1:(length(par_c)-1)){
+      par_ch <- paste(par_ch, par_c[i+1], sep = ", ")
+    }
+    
+    plot.1
+    curve_fc(model = model[1], par = par, add = TRUE, leg = FALSE)
+    if(length(model) == 1){
+        legend("topright", 
+               paste0(names_m[1], " (", par_ch, 
+                      ")"),
+               lty = 1, lwd = 3, col = 2)
+    }
+    
+    else if(length(model) == 2) {
+      par_2 <- obj$mod[[paste(model[2])]]
+      #    Parameter correction
+      if(model[2] %in% c("simplex", "ll", "ln", "lsl",
+                         "lt", "lsep", "lsn", "lst", "lsep")){
+         par_adj_2 <- par_2
+        par_adj_2[2] <- 1/(par_adj_2[2]^2)
+      }
+
+      par_c_2 <- as.character(round(par_adj_2, 3))
+      
+      par_ch_2 <- par_c_2[1]    
+      for(i in 1:(length(par_c_2)-1)){
+        par_ch_2 <- paste(par_ch_2, par_c_2[i+1], sep = ", ")
+      }
+      
+      curve_fc(model = model[2], 
+               par = par_2,
+               col = "orange",
+               add = TRUE,
+               leg = FALSE)
+      legend("topright", 
+             c(paste0(names_m[1], " (", par_ch, 
+                      ")"), 
+             paste0(names_m[2], " (", par_ch_2, 
+                      ")")),
+           lty = 1, lwd = 3, col = c("2", "orange"))
+    }
+
+    
+    else if(length(model) == 3) {
+      par_2 <- obj$mod[[paste(model[2])]]
+      #    Parameter correction
+      if(model[2] %in% c("simplex", "ll", "ln", "lsl",
+                         "lt", "lsep", "lsn", "lst", "lsep")){
+        par_adj_2 <- par_2
+        par_adj_2[2] <- 1/(par_adj_2[2]^2)
+      }
+      
+      par_c_2 <- as.character(round(par_adj_2, 3))
+      
+      par_ch_2 <- par_c_2[1]    
+      for(i in 1:(length(par_c_2)-1)){
+        par_ch_2 <- paste(par_ch_2, par_c_2[i+1], sep = ", ")
+      }
+      
+      
+      par_3 <- obj$mod[[paste(model[3])]]
+      #    Parameter correction
+      if(model[3] %in% c("simplex", "ll", "ln", "lsl",
+                         "lt", "lsep", "lsn", "lst", "lsep")){
+        par_adj_3 <- par_3
+        par_adj_3[2] <- 1/(par_adj_3[2]^2)
+      }
+      
+      par_c_3 <- as.character(round(par_adj_3, 3))
+      
+      par_ch_3 <- par_c_3[1]    
+      for(i in 1:(length(par_c_3)-1)){
+        par_ch_3 <- paste(par_ch_3, par_c_3[i+1], sep = ", ")
+      }
+      
+      
+      curve_fc(model = model[2], 
+               par = par_2,
+               col = "orange",
+               add = TRUE,
+               leg = FALSE)
+      curve_fc(model = model[3], 
+               par = par_3,
+               col = "green3",
+               add = TRUE,
+               leg = FALSE)
+      legend("topright", 
+             c(paste0(names_m[1], " (", par_ch, 
+                      ")"), 
+               paste0(names_m[2], " (", par_ch_2, 
+                      ")"),
+               paste0(names_m[3], " (", par_ch_3, 
+                      ")")
+             ),
+             lty = 1, lwd = 3, col = c("2", "orange", "green3"))
+    } 
+  }
+}) 
+
+
+
+plotOutput("chart1")
+```
+
+
+```{r, eval = FALSE}
+fc <- reactive({
+  y <- dataset()[,input$yvar]
+  return(list(y=y))
+})
+
+
+output$table <- renderDataTable({
+  inFile <- input$file
+  if (is.null(inFile))
+    return(NULL)
+  
+  read.csv(inFile$datapath, header=input$header,
+           sep = input$separator,
+           quote = input$quotation)
+})
+
+dataTableOutput("table")
+
+```
+
+
+### Summary 
+```{r}
+output$table <- renderFormattable({
+  y <- fc()$y
+  y <- as.numeric(y)
+  
+  obj <- summ(y)
+  results <- obj$res[,-c(4:5)]
+
+  da <- data.frame(results, 
+                   vr = c("", obj$VR), 
+                   p.value = c(NA, obj$p)) 
+  formattable(da, list(w_AIC = color_tile("lightsalmon2", 
+                                          "lightgreen"),
+                       w_BIC = color_tile("lightsalmon1", 
+                                          "lightgreen"),
+                       p.value = formatter("span", 
+                                           style = x ~ 
+                                             ifelse(
+                                               is.na(x), 
+                                               style(color =
+                                                       "white"),
+                                               ifelse(x < 0.1,
+                                                      style(color = 
+                                                              "green",
+                                                            font.weight =
+                                                              "bold"),
+                                                      NA)
+                                             ))))
+              
+              
+              # col.names = c("Time", "$\\dot{m}_1$", "3", "4", "5", "6",
+              # "7"))
+  # format_table(tab, list(colnames = 
+  #                          c("Time", "$\\dot{m}_1$", "3", "4", "5", "6",
+  #                            "7") ))
+  
+})
+
+formattable::formattableOutput("table")
+```
+
+
+
+
+
