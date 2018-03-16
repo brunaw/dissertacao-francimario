@@ -1058,7 +1058,9 @@ summ <- function(y){
                                 lower = c(0, 0, 0),
                                 upper = c(1, Inf, 1))$par,
              silent = TRUE)
-    
+    # if(ajuste.br[3] == 0){
+    #   ajuste.br[3] <- 0.9
+    # }
     if(inherits(w, "try-error") == TRUE){ 
       i <- i+1 
       ajuste.br <- c(mean(y), 1, 3 - kurtosis(y))
@@ -1295,7 +1297,7 @@ summ <- function(y){
     ######################################
     
     VR <- c(z(l.kuma-l.beta), z(l.simplex-l.beta), 
-           z(l.gu-l.beta), z(l.br-l.beta), 
+           z(l.gu - l.beta), z(l.br-l.beta), 
            z(l.LL-l.beta), z(l.LN-l.beta), z(l.LT-l.beta),
            z(l.LPE-l.beta),
            z(l.LSL-l.beta),
